@@ -1,0 +1,29 @@
+GSO - Generic Segmentation Offload - is magic sauce that makes Linux
+networking go faster.
+
+Usually it works automatically at the kernel level, without user
+intervention.
+
+However, for testing, it can be helpful to be able to construct your
+own GSO packets. The AF_PACKET socket type allows you to insert GSO
+packets from userspace using infrastructure from virtio_net. However,
+I was unable to find any example code on the internet that showed how
+to use this. So after reading a lot of kernel source, this is my
+attempt to provide a complete, working example of getting GSO packets
+into the kernel and out to the network.
+
+This repository contains:
+
+ - ufo.c: code to insert a UDP GSO (UFO) packet.
+
+          Edit the constants at the top of the file to provide your
+	  own interface and destination MAC/IP, then set a listener
+	  on the destination on UDP port 23452.
+
+          Requires CAP_NET_ADMIN, so run as root.
+
+
+TODO
+----
+ * include eBPF probe code to allow some inspection of the process
+ * (eventually, maybe) TSO sample code
