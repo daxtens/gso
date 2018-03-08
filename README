@@ -22,8 +22,11 @@ This repository contains:
 
           Requires CAP_NET_ADMIN, so run as root.
 
+ - probe_segmentation.py: example python+eBPF C code to show the 
+                          process of segmentation using eBPF kprobes.
+                          Needs https://github.com/iovisor/bcc
 
 TODO
 ----
- * include eBPF probe code to allow some inspection of the process
+ * include more eBPF examples
  * (eventually, maybe) TSO sample code
